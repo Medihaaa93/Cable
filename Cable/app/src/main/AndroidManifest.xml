@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BerrechnungSicherung" />
+        <activity android:name=".KabelBerechnung" />
+        <activity android:name=".Impressum"></activity>
     </application>
 
 </manifest>
