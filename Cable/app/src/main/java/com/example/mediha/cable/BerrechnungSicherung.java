@@ -11,5 +11,6 @@ public class BerrechnungSicherung extends AppCompatActivity {
         setContentView(R.layout.activity_berrechnung_sicherung);
     }
 
-    
+
+
 }

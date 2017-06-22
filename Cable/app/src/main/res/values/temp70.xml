@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="10">1.15</string>
+    <string name="15">1,10</string>
+    <string name="20">1,06</string>
+    <string name="25">1</string>
+    <string name="30">0,94</string>
+    <string name="35">0,89</string>
+    <string name="40">0,82</string>
+    <string name="45">0,75</string>
+    <string name="50">0,67</string>
+    <string name="55">0,58</string>
+    <string name="60">0,47</string>
+    <string name="65">0,33</string>
+
+</resources>
