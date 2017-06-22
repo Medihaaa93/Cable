@@ -14,22 +14,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btn = new Button(findViewById(id.button));
+
     }
 
 
 
     public void ImpressumBtn(){
 
+        Button btn = (Button) findViewById(R.id.button);
+
         btn.setOnClickListener(new View.OnClickListener()
 
     {
         @Override
         public void onClick (View v){
-        Intent i = new Intent(v.getContext(), activityClass);
+        Intent i = new Intent(v.getContext(), Impressum.class);
         startActivity(i);
     }
-    }
+        });
 }
 
 }

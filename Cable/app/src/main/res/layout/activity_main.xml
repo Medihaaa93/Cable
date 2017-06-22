@@ -8,20 +8,14 @@
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 
-    <scale xmlns:android="http://schemas.android.com/apk/res/android"
-        android:drawable="@drawable/logo"
-        android:scaleGravity="center_vertical|center_horizontal"
-        android:scaleHeight="80%"
-        android:scaleWidth="80%"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp" />
+
 
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="172dp"
         android:layout_height="264dp"
-        android:src="@drawable/scale"
+
         app:srcCompat="@drawable/kableabgerundet"
         tools:layout_editor_absoluteX="205dp"
         tools:layout_editor_absoluteY="69dp"
@@ -31,7 +25,7 @@
         android:id="@+id/imageView4"
         android:layout_width="164dp"
         android:layout_height="258dp"
-        android:src="@drawable/scale"
+
         app:srcCompat="@drawable/sdf"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="74dp"
@@ -69,4 +63,5 @@
         tools:layout_editor_absoluteX="19dp"
         tools:layout_editor_absoluteY="452dp"
         android:onClick="Impressum"/>
+
 </android.support.constraint.ConstraintLayout>
