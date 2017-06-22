@@ -62,6 +62,5 @@
         android:text="Impressum"
         tools:layout_editor_absoluteX="19dp"
         tools:layout_editor_absoluteY="452dp"
-        android:onClick="Impressum"/>
-
+      />
 </android.support.constraint.ConstraintLayout>
