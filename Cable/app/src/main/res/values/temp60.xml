@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="10">1.19</string>
-    <string name="15">1,13</string>
-    <string name="20">1,07</string>
-    <string name="25">1</string>
-    <string name="30">0,93</string>
-    <string name="35">0,84</string>
-    <string name="40">0,76</string>
-    <string name="45">0,66</string>
-    <string name="50">0,54</string>
-    <string name="55">0,38</string>
+    <string name="t60t10">1.19</string>
+    <string name="t60t15">1,13</string>
+    <string name="t60t20">1,07</string>
+    <string name="t60t25">1</string>
+    <string name="t60t30">0,93</string>
+    <string name="t60t35">0,84</string>
+    <string name="t60t40">0,76</string>
+    <string name="t60t45">0,66</string>
+    <string name="t60t50">0,54</string>
+    <string name="t60t55">0,38</string>
 
 
 </resources>
