@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@color/background"
+
     android:baselineAligned="false"
     tools:context=".Main"
     tools:ignore="NamespaceTypo">
@@ -43,7 +44,8 @@
             android:layout_centerInParent="true"
             android:text="@string/Imp1"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
         <TextView
             android:id="@+id/textLabel2"
             android:layout_width="wrap_content"
@@ -52,7 +54,8 @@
             android:layout_centerInParent="true"
             android:text="@string/Imp3"
             android:textSize="14sp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <ImageView
             android:id="@+id/imageLabel2"
@@ -61,7 +64,8 @@
             android:src="@drawable/photomedi1"
             android:layout_below="@+id/textLabel2"
             android:layout_alignStart="@+id/imageLabel"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="30dp"
+            />
 
         <TextView
             android:id="@+id/textLabel3"
@@ -71,7 +75,8 @@
             android:layout_centerInParent="true"
             android:text="@string/Imp2"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <TextView
             android:id="@+id/textLabel4"
@@ -81,7 +86,8 @@
             android:layout_centerInParent="true"
             android:text="@string/Imp4"
             android:textSize="14sp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"/>
     </RelativeLayout>
         </LinearLayout>
     </ScrollView>
