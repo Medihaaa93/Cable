@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mediha.cable.Impressum">
+    android:background="#ffffff"
+    android:baselineAligned="false"
+    tools:context=".Main"
+    tools:ignore="NamespaceTypo">
 
-</android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:id="@+id/imageLabel"
+            android:layout_width="100sp"
+            android:layout_height="150sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/photokarim"/>
+
+        <TextView
+            android:id="@+id/textLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageLabel"
+            android:layout_centerInParent="true"
+            android:text="@string/Imp1"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/textLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textLabel"
+            android:layout_centerInParent="true"
+            android:text="@string/Imp3"
+            android:textSize="14sp"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:id="@+id/imageLabel2"
+            android:layout_width="100sp"
+            android:layout_height="150sp"
+            android:src="@drawable/photomedi1"
+            android:layout_below="@+id/textLabel2"
+            android:layout_alignStart="@+id/imageLabel"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/textLabel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageLabel2"
+            android:layout_centerInParent="true"
+            android:text="@string/Imp2"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textLabel4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textLabel3"
+            android:layout_centerInParent="true"
+            android:text="@string/Imp4"
+            android:textSize="14sp"
+            android:textAlignment="center"/>
+    </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

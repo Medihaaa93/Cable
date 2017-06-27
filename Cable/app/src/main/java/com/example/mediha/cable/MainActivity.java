@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BerrechnungSicherungIntent();
-        BerechnungKabel();
-        ImpressumBtn();
+        berrechnungSicherungIntent();
+        berechnungKabel();
+        impressumBtn();
 
     }
 
-    public void BerrechnungSicherungIntent() { //Sicherung ist ImageView4
+    public void berrechnungSicherungIntent() { //Sicherung ist ImageView4
         ImageView sicherung = (ImageView) findViewById(R.id.imageView4);
         sicherung.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void BerechnungKabel() { //Kable ist ImageView3
+    public void berechnungKabel() { //Kable ist ImageView3
         ImageView sicherung = (ImageView) findViewById(R.id.imageView3);
         sicherung.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void ImpressumBtn() {
+    public void impressumBtn() {
 
         Button btn = (Button) findViewById(R.id.button);
 

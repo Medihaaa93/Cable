@@ -23,7 +23,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.666" />
+        app:layout_constraintHorizontal_bias="0.666"
+        android:onClick="berechnungKabel"/>
 
     <ImageView
         android:id="@+id/imageView4"
@@ -34,7 +35,8 @@
 
         tools:layout_editor_absoluteY="92dp"
         android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="berrechnungSicherungIntent"/>
 
     <TextView
         android:id="@+id/textView"
@@ -54,7 +56,8 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="@+id/imageView4"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="@+id/imageView4" />
+        app:layout_constraintRight_toRightOf="@+id/imageView4"
+        />
 
     <TextView
         android:id="@+id/textView3"
@@ -78,5 +81,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.845" />
+        app:layout_constraintVertical_bias="0.845"
+        android:onClick="impressumBtn"/>
 </android.support.constraint.ConstraintLayout>
