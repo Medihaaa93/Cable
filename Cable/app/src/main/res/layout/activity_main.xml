@@ -43,8 +43,9 @@
             android:layout_height="210dp"
             android:onClick="berrechnungSicherungIntent"
             app:srcCompat="@drawable/ovalsicherung"
-            android:layout_below="@+id/textView3"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignTop="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -64,7 +65,7 @@
             android:layout_height="43dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/roundedbutton"
             android:onClick="impressumBtn"
             android:text="Impressum"
