@@ -59,4 +59,5 @@
 
     </string-array>
 
+    <integer name="gammaKupfer">58000000</integer>
 </resources>
