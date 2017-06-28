@@ -471,6 +471,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
 
         String text00 = null;
+        String querschnitt = null;
         if (amp <= amp2 && amp2 <= amp3) {
 
             double deltaU = 0;
@@ -479,6 +480,9 @@ public class KabelBerechnung extends AppCompatActivity {
 
             deltaU = ((2 * laenge * amp * cos) / (58000000 * flaeche));
             text00 = String.valueOf(deltaU);
+            querschnitt = "Querschnitt =";
+            querschnitt = querschnitt + String.valueOf(quer0);
+            querschnitt = querschnitt + "mm²";
         } else {
 
             Toast.makeText(new KabelBerechnung(), "Leider sind wir auf kein Ergebnis gekommen",
@@ -491,7 +495,7 @@ public class KabelBerechnung extends AppCompatActivity {
         //Intent i = new Intent(this, SendKabel.class);
         //startActivity(i);
         TextView showAmpere = (TextView) findViewById(R.id.textView10);
-        showAmpere.setText(text00);
+        showAmpere.setText(querschnitt);
 
         showAmpere.setVisibility(View.VISIBLE);
 
