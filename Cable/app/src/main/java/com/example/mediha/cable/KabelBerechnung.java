@@ -64,7 +64,7 @@ public class KabelBerechnung extends AppCompatActivity {
             public void onClick(View v) {
                 berechnung();
                 btnStart.setVisibility(View.INVISIBLE);
-                takepic(view);
+
 
 
                            }
@@ -292,10 +292,13 @@ public class KabelBerechnung extends AppCompatActivity {
 
 
                 if (volt == 230) {
+
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessA12.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessA12.get(i)[0]);
-                            quer0 = Float.valueOf(bemessA12.get(i)[1]);
+
+                        String[] test01 = bemessA12.get(i);
+                        if (amp <= Integer.valueOf(test01[0])) {
+                            amp2 = Integer.valueOf(test01[0]);
+                            quer0 = Float.valueOf(test01[1]);
 
                             break;
                         } else {
@@ -308,9 +311,11 @@ public class KabelBerechnung extends AppCompatActivity {
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessA13.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessA13.get(i)[0]);
-                            quer0 = Float.valueOf(bemessA13.get(i)[1]);
+
+                        String[] test02 = bemessA13.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
@@ -330,9 +335,10 @@ public class KabelBerechnung extends AppCompatActivity {
 
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessA22.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessA22.get(i)[0]);
-                            quer0 = Float.valueOf(bemessA22.get(i)[1]);
+                        String[] test02 = bemessA22.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
@@ -345,9 +351,10 @@ public class KabelBerechnung extends AppCompatActivity {
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessA23.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessA23.get(i)[0]);
-                            quer0 = Float.valueOf(bemessA23.get(i)[1]);
+                        String[] test02 = bemessA23.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
@@ -368,9 +375,10 @@ public class KabelBerechnung extends AppCompatActivity {
 
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessB12.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessB12.get(i)[0]);
-                            quer0 = Float.valueOf(bemessB12.get(i)[1]);
+                        String[] test02 = bemessB12.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
@@ -383,9 +391,10 @@ public class KabelBerechnung extends AppCompatActivity {
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessB13.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessB13.get(i)[0]);
-                            quer0 = Float.valueOf(bemessB13.get(i)[1]);
+                        String[] test02 = bemessB13.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
@@ -403,9 +412,10 @@ public class KabelBerechnung extends AppCompatActivity {
 
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessB22.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessB22.get(i)[0]);
-                            quer0 = Float.valueOf(bemessB22.get(i)[1]);
+                        String[] test02 = bemessB22.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
@@ -418,9 +428,10 @@ public class KabelBerechnung extends AppCompatActivity {
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessB23.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessB23.get(i)[0]);
-                            quer0 = Float.valueOf(bemessB23.get(i)[1]);
+                        String[] test02 = bemessB23.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
@@ -439,9 +450,10 @@ public class KabelBerechnung extends AppCompatActivity {
 
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessC12.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessC12.get(i)[0]);
-                            quer0 = Float.valueOf(bemessC12.get(i)[1]);
+                        String[] test02 = bemessC12.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
@@ -454,9 +466,10 @@ public class KabelBerechnung extends AppCompatActivity {
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= Integer.valueOf(bemessC13.get(i)[0])) {
-                            amp2 = Integer.valueOf(bemessC13.get(i)[0]);
-                            quer0 = Float.valueOf(bemessC13.get(i)[1]);
+                        String[] test02 = bemessC13.get(i);
+                        if (amp <= Integer.valueOf(test02[0])) {
+                            amp2 = Integer.valueOf(test02[0]);
+                            quer0 = Float.valueOf(test02[1]);
 
                             break;
                         } else {
