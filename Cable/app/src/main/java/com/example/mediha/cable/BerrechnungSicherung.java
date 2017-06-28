@@ -8,6 +8,7 @@ import android.print.pdf.PrintedPdfDocument;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -116,14 +117,43 @@ public class BerrechnungSicherung extends AppCompatActivity {
     }
 
     public void share(View v) {
+        final Button share = (Button) findViewById(R.id.btnShare);
 
-        Bitmap test = viewToBitmap(v);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Bitmap bitmap = getScreenShot(v);
+
+                shareImage(bitmap);
+
+
+            }
+        });
+
+
+
+    };
+
+
+    public static Bitmap getScreenShot(View view) {
+        View screenView = view.getRootView();
+        screenView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
+        screenView.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+
+
+
+    public void shareImage(Bitmap bm){
+        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
         File f = new File (getExternalCacheDir()+"/image.png");
-        f.delete();
         try {
             FileOutputStream outStream = new FileOutputStream(f);
-            test.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+            bm.compress(Bitmap.CompressFormat.PNG, 100, outStream);
             outStream.flush();
             outStream.close();
 
@@ -131,28 +161,14 @@ public class BerrechnungSicherung extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
         Intent intent = new Intent(Intent.ACTION_SEND);
-        //intent.setType("text/plain");
+
         intent.putExtra(Intent.EXTRA_SUBJECT, "Look this !");
         intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
         intent.setType("text/plain");
 
         startActivity(Intent.createChooser(intent, "Wählen"));
 
-
-    };
-
-
-    public Bitmap viewToBitmap(View view) {
-        view = view.getRootView();
-        LinearLayout view1 = (LinearLayout) view.findViewById(R.id.linearlayout1);
-        view1.setDrawingCacheEnabled(true);
-        view1.buildDrawingCache();
-        view1.setBackgroundColor(Color.rgb(238,238,238));
-        Bitmap bm = view1.getDrawingCache();
-
-        return bm;
     }
     }
 
