@@ -3,6 +3,7 @@ package com.example.mediha.cable;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,14 +11,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.attr.delay;
+import static com.example.mediha.cable.R.array.querschnitt;
 
 public class KabelBerechnung extends AppCompatActivity {
 
@@ -47,9 +54,11 @@ public class KabelBerechnung extends AppCompatActivity {
 
     }
 
-    public void berechnen(View view) {
+    public void berechnen(final View view) {
 
         final Button btnStart = (Button) findViewById(R.id.buttonStart);
+        final TextView showAmpere = (TextView) findViewById(R.id.textView10);
+
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,11 +66,25 @@ public class KabelBerechnung extends AppCompatActivity {
                 btnStart.setVisibility(View.INVISIBLE);
                 exportActivity();
 
-
-            }
+                           }
         });
     }
 
+    public void share(final View view) {
+
+        final Button share = (Button) findViewById(R.id.buttonShare);
+        final TextView showAmpere = (TextView) findViewById(R.id.textView10);
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                share.setVisibility(View.INVISIBLE);
+
+                takepic(view);
+            }
+        });
+    }
 
     private void berechnung() {
 
@@ -508,55 +531,51 @@ public class KabelBerechnung extends AppCompatActivity {
         TextView showAmpere = (TextView) findViewById(R.id.textView10);
         showAmpere.setText(querschnitt);
 
-        showAmpere.setVisibility(View.VISIBLE);
+       // showAmpere.setVisibility(View.VISIBLE);
+
+
+
 
 
 
     }
 
-    public void exportActivity(){
-        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
-        getScreenShot(rootView);
-    }
+    public void takepic(View v){
 
-    public static Bitmap getScreenShot(View view) {
-        View screenView = view.getRootView();
-        screenView.setDrawingCacheEnabled(true);
-        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
-        screenView.setDrawingCacheEnabled(false);
-       
-        return bitmap;
-    }
+        Bitmap test = viewToBitmap(v);
 
-    public static void store(Bitmap bm, String fileName){
-        final String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
-        File dir = new File(dirPath);
-        if(!dir.exists())
-            dir.mkdirs();
-        File file = new File(dirPath, fileName);
+        File f = new File (getExternalCacheDir()+"/image.png");
         try {
-            FileOutputStream fOut = new FileOutputStream(file);
-            bm.compress(Bitmap.CompressFormat.PNG, 85, fOut);
-            fOut.flush();
-            fOut.close();
-        } catch (Exception e) {
+            FileOutputStream outStream = new FileOutputStream(f);
+            test.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+            outStream.flush();
+            outStream.close();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 
-    private void shareImage(File file){
-        Uri uri = Uri.fromFile(file);
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SEND);
-        intent.setType("image/*");
 
-        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
-        intent.putExtra(android.content.Intent.EXTRA_TEXT, "");
-        intent.putExtra(Intent.EXTRA_STREAM, uri);
-        try {
-            startActivity(Intent.createChooser(intent, "Share Screenshot"));
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(KabelBerechnung.this, "No App Available", Toast.LENGTH_SHORT).show();
-        }
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        //intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Look this !");
+        intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
+        intent.setType("text/plain");
+
+        startActivity(Intent.createChooser(intent, "Wählen"));
+
+
+    };
+
+
+    public Bitmap viewToBitmap(View view) {
+        view = view.getRootView();
+        LinearLayout view1 = (LinearLayout) view.findViewById(R.id.linearlayout);
+        view1.setDrawingCacheEnabled(true);
+        view1.buildDrawingCache();
+        view1.setBackgroundColor(Color.rgb(238,238,238));
+        Bitmap bm = view1.getDrawingCache();
+
+        return bm;
     }
 }

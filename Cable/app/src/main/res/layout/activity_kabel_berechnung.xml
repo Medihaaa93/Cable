@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/linearlayout"
     android:layout_height="match_parent"
     android:background="@color/background"
     android:baselineAligned="false"
@@ -9,6 +10,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/relativelayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,223 +18,237 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Leistung in Watt:"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginTop="20dp"
+            android:text="Leistung in Watt:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0.0" />
 
         <EditText
             android:id="@+id/editLeistung"
             android:layout_width="178dp"
             android:layout_height="42dp"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:text="1"
             android:layout_alignBaseline="@+id/textView6"
             android:layout_alignBottom="@+id/textView6"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="1" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verlegeart:"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-
-
+            android:layout_alignStart="@+id/textView6"
+            android:layout_below="@+id/textView6"
             android:layout_marginRight="8dp"
             android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_below="@+id/textView6"
-            android:layout_alignStart="@+id/textView6" />
+
+
+            android:text="Verlegeart:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <Spinner
             android:id="@+id/spinnerVerlege"
             android:layout_width="368dp"
             android:layout_height="wrap_content"
-            android:entries="@array/verlaege"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/textView4"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_below="@+id/textView4"
-            android:layout_alignStart="@+id/textView4" />
+            android:entries="@array/verlaege"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Häuffung:"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-
-
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/spinnerVerlege"
             android:layout_marginRight="8dp"
             android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_below="@+id/spinnerVerlege"
-            android:layout_alignStart="@+id/textView4" />
+
+
+            android:text="Häuffung:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <Spinner
             android:id="@+id/spinnerHauf"
             android:layout_width="368dp"
             android:layout_height="wrap_content"
-            android:entries="@array/hauf"
+            android:layout_alignStart="@+id/textView1"
+            android:layout_below="@+id/textView1"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/textView1"
-            android:layout_alignStart="@+id/textView1" />
+            android:entries="@array/hauf" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Umgebungstemperatur:"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-
-
+            android:layout_alignStart="@+id/textView1"
+            android:layout_below="@+id/spinnerHauf"
             android:layout_marginRight="8dp"
             android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_below="@+id/spinnerHauf"
-            android:layout_alignStart="@+id/textView1" />
+
+
+            android:text="Umgebungstemperatur:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <Spinner
             android:id="@+id/spinnerTemp"
             android:layout_width="368dp"
             android:layout_height="wrap_content"
-            android:entries="@array/temp"
+            android:layout_alignStart="@+id/textView12"
+            android:layout_below="@+id/textView12"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/textView12"
-            android:layout_alignStart="@+id/textView12" />
+            android:entries="@array/temp" />
 
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verwendete Spannung:"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-
+            android:layout_alignStart="@+id/textView12"
+            android:layout_below="@+id/spinnerTemp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="25dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_below="@+id/spinnerTemp"
-            android:layout_alignStart="@+id/textView12" />
+
+            android:text="Verwendete Spannung:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <Spinner
             android:id="@+id/spinner2"
             android:layout_width="368dp"
             android:layout_height="wrap_content"
-            android:entries="@array/spannung"
+            android:layout_alignStart="@+id/textView8"
+            android:layout_below="@+id/textView8"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_below="@+id/textView8"
-            android:layout_alignStart="@+id/textView8" />
+            android:entries="@array/spannung"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Laenge der Leitung in Meter:"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="8dp"
-            android:layout_below="@+id/spinner2"
             android:layout_alignStart="@+id/textView8"
+            android:layout_below="@+id/spinner2"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="25dp"
+
+            android:text="Laenge der Leitung in Meter:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0.0" />
 
         <EditText
             android:id="@+id/editLaenge"
             android:layout_width="130dp"
             android:layout_height="43dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:text="1"
             android:layout_alignBaseline="@+id/textView5"
             android:layout_alignBottom="@+id/textView5"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="1" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phasenverschiebung Cos φ:"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-
-
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="8dp"
-            android:layout_below="@+id/textView5"
             android:layout_alignStart="@+id/textView5"
+            android:layout_below="@+id/textView5"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="25dp"
+
+
+            android:text="Phasenverschiebung Cos φ:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0.0" />
 
         <EditText
             android:id="@+id/editCos"
             android:layout_width="130dp"
             android:layout_height="43dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:text="1"
             android:layout_alignBaseline="@+id/textView7"
             android:layout_alignBottom="@+id/textView7"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="1" />
 
         <Button
             android:id="@+id/buttonStart"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:text="Start"
-            android:background="@drawable/roundedbutton"
-            android:textColor="@color/textCoolor"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:layout_marginRight="25dp"
+            android:background="@drawable/roundedbutton"
+            android:onClick="berechnen"
+            android:text="Start"
+            android:textColor="@color/textCoolor"
+            android:layout_marginLeft="25dp"
             android:layout_marginBottom="17dp"
-            android:onClick="berechnen"/>
+            android:layout_alignParentBottom="true"
+            android:layout_above="@+id/buttonShare"
+            android:layout_alignEnd="@+id/textView8" />
+
+        <Button
+            android:id="@+id/buttonShare"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/roundedbutton"
+            android:onClick="share"
+            android:text="Share"
+            android:textColor="@color/textCoolor"
+            android:layout_marginBottom="17dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/textView7"
+            />
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="25dp"
-
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:text=""
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:visibility="invisible"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
-
 
 
 </LinearLayout>
