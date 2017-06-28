@@ -93,7 +93,9 @@ public class BerrechnungSicherung extends AppCompatActivity {
                     }
                 }
                 break;
-                break;
+
+
+
 
 
         }
