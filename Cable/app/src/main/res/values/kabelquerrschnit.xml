@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="querschnitt">
+        <item>0,50 mm²</item>
+        <item>0,75 mm²</item>
+        <item>1,00 mm²</item>
+        <item>1,50 mm²</item>
+        <item>2,50 mm²</item>
+        <item>4,00 mm²</item>
+        <item>6,00 mm²</item>
+        <item>8,00 mm²</item>
+        <item>10,00 mm²</item>
+        <item>16,00 mm²</item>
+        <item>20,00 mm²</item>
+        <item>25,00 mm²</item>
+        <item>30,00 mm²</item>
+        <item>50,00 mm²</item>
+        <item>70,00 mm²</item>
+        <item>95,00 mm²</item>
+
+
+    </string-array>
+
+</resources>
+

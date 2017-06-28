@@ -66,6 +66,34 @@
             android:layout_alignStart="@+id/textView4" />
 
         <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Häuffung:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+
+
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_below="@+id/spinnerVerlege"
+            android:layout_alignStart="@+id/textView4" />
+
+        <Spinner
+            android:id="@+id/spinnerHauf"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/hauf"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_below="@+id/textView1"
+            android:layout_alignStart="@+id/textView1" />
+
+        <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,8 +105,8 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="25dp"
             app:layout_constraintHorizontal_bias="0.0"
-            android:layout_below="@+id/spinnerVerlege"
-            android:layout_alignStart="@+id/textView4" />
+            android:layout_below="@+id/spinnerHauf"
+            android:layout_alignStart="@+id/textView1" />
 
         <Spinner
             android:id="@+id/spinner2"
@@ -156,8 +184,7 @@
             android:textColor="@color/textCoolor"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="25dp"
-            />
+            android:layout_marginBottom="25dp"/>
 
     </RelativeLayout>
 

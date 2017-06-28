@@ -9,16 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".BerrechnungSicherung" />
-        <activity android:name=".KabelBerechnung" />
-        <activity android:name=".Impressum"></activity>
+        <activity android:name=".BerrechnungSicherung"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".KabelBerechnung"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Impressum"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
