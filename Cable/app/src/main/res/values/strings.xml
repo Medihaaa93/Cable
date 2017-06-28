@@ -39,5 +39,24 @@
         <item>14 Leitungen / Kabeln</item>
     </string-array>
 
+    <string-array name="temp">
+        <item>10 °C</item>
+        <item>15 °C</item>
+        <item>20 °C</item>
+        <item>25 °C</item>
+        <item>30 °C</item>
+        <item>35 °C</item>
+        <item>40 °C</item>
+        <item>45 °C</item>
+        <item>50 °C</item>
+        <item>55 °C</item>
+        <item>60 °C</item>
+        <item>65 °C</item>
+        <item>70 °C</item>
+        <item>75 °C</item>
+        <item>80 °C</item>
+        <item>85 °C</item>
+
+    </string-array>
 
 </resources>
