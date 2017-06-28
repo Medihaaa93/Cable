@@ -116,7 +116,7 @@ public class BerrechnungSicherung extends AppCompatActivity {
 
     }
 
-    public void share(View v) {
+    public void shareS(View v) {
         final Button share = (Button) findViewById(R.id.btnShare);
 
         share.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +127,8 @@ public class BerrechnungSicherung extends AppCompatActivity {
                 Bitmap bitmap = getScreenShot(v);
 
                 shareImage(bitmap);
+
+
 
 
             }
@@ -151,6 +153,7 @@ public class BerrechnungSicherung extends AppCompatActivity {
         View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
         File f = new File (getExternalCacheDir()+"/image.png");
+        f.deleteOnExit();
         try {
             FileOutputStream outStream = new FileOutputStream(f);
             bm.compress(Bitmap.CompressFormat.PNG, 100, outStream);

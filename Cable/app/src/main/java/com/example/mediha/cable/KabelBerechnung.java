@@ -85,6 +85,7 @@ public class KabelBerechnung extends AppCompatActivity {
                 shareImage(bitmap);
 
 
+
             }
         });
     }
@@ -760,6 +761,7 @@ public class KabelBerechnung extends AppCompatActivity {
        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
         File f = new File (getExternalCacheDir()+"/image.png");
+        f.deleteOnExit();
         try {
             FileOutputStream outStream = new FileOutputStream(f);
             bm.compress(Bitmap.CompressFormat.PNG, 100, outStream);
