@@ -91,6 +91,9 @@ public class KabelBerechnung extends AppCompatActivity {
 
     private void berechnung() {
 
+        TextView showAmpere = (TextView) findViewById(R.id.textView10);
+
+
         EditText textLeistung = (EditText) findViewById(R.id.editLeistung);
         float leistung = Float.valueOf(textLeistung.getText().toString()); // Leistung in Meter
 
@@ -295,35 +298,35 @@ public class KabelBerechnung extends AppCompatActivity {
 
                 if (volt == 230) {
 
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
 
                         String[] test01 = bemessA12.get(i);
-                        if (amp <= Integer.valueOf(test01[0])) {
+                        if (amp <= Float.valueOf(test01[0])) {
                             amp2 = Integer.valueOf(test01[0]);
                             quer0 = Float.valueOf(test01[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 25){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
 
                     }
                 } else {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
 
                         String[] test02 = bemessA13.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 80){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
 
@@ -336,33 +339,33 @@ public class KabelBerechnung extends AppCompatActivity {
 
 
                 if (volt == 230) {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessA22.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 25){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
 
                     }
                 } else {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessA23.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 80){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
 
@@ -376,33 +379,33 @@ public class KabelBerechnung extends AppCompatActivity {
 
 
                 if (volt == 230) {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessB12.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 25){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
 
                     }
                 } else {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessB13.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 100){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
                     }
@@ -413,33 +416,33 @@ public class KabelBerechnung extends AppCompatActivity {
 
 
                 if (volt == 230) {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessB22.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 25){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
 
                     }
                 } else {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessB23.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 100){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
                     }
@@ -451,33 +454,33 @@ public class KabelBerechnung extends AppCompatActivity {
 
 
                 if (volt == 230) {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessC12.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 35){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
 
                     }
                 } else {
-                    for (int i = 0; i < 8; i++) {
+                    for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessC13.get(i);
-                        if (amp <= Integer.valueOf(test02[0])) {
+                        if (amp <= Float.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
                             quer0 = Float.valueOf(test02[1]);
 
                             break;
-                        } else {
-                            Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
-                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(amp > 125){
 
+                            showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
                             break;
                         }
                     }
@@ -499,26 +502,210 @@ public class KabelBerechnung extends AppCompatActivity {
             case 0:
 
                 faktorhauf = haufa.get(haufposition);
-                amp3 = (amp2 * tempfaktor * faktorhauf);
+                amp3 = (amp2 /( tempfaktor * faktorhauf));
 
             case 1:
 
                 faktorhauf = haufa.get(haufposition);
-                amp3 = (amp2 * tempfaktor * faktorhauf);
+                amp3 = (amp2 /( tempfaktor * faktorhauf));
             case 2:
 
                 faktorhauf = haufa.get(haufposition);
-                amp3 = (amp2 * tempfaktor * faktorhauf);
+                amp3 = (amp2 /( tempfaktor * faktorhauf));
             case 3:
                 faktorhauf = haufa.get(haufposition);
-                amp3 = (amp2 * tempfaktor * faktorhauf);
+                amp3 = (amp2 /( tempfaktor * faktorhauf));
             case 4:
                 faktorhauf = haufc.get(haufposition);
-                amp3 = (amp2 * tempfaktor * faktorhauf);
+                amp3 = (amp2 /( tempfaktor * faktorhauf));
 
 
         }
 
+        switch (verlegeposition){
+
+        case 0:
+
+        if (volt == 230) {
+
+            for (int i = 0; i < 10; i++) {
+
+                String[] test01 = bemessA12.get(i);
+                if (amp3 <= Float.valueOf(test01[0])) {
+                    quer0 = Float.valueOf(test01[1]);
+
+                    break;
+                }
+                else if(amp > 25){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+            }
+        } else {
+            for (int i = 0; i < 10; i++) {
+
+                String[] test02 = bemessA13.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                }else if(amp > 80){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+
+            }
+
+        }
+
+        case 1:
+
+
+        if (volt == 230) {
+            for (int i = 0; i < 10; i++) {
+                String[] test02 = bemessA22.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                } else if(amp > 25){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+
+            }
+        } else {
+            for (int i = 0; i < 10; i++) {
+                String[] test02 = bemessA23.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                }else if(amp > 80){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+
+            }
+
+        }
+
+
+        case 2:
+
+
+        if (volt == 230) {
+            for (int i = 0; i < 10; i++) {
+                String[] test02 = bemessB12.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                } else if(amp > 25){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+
+            }
+        } else {
+            for (int i = 0; i < 10; i++) {
+                String[] test02 = bemessB13.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                }else if(amp > 100){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+            }
+
+        }
+
+        case 3:
+
+
+        if (volt == 230) {
+            for (int i = 0; i < 10; i++) {
+                String[] test02 = bemessB22.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                } else if(amp > 25){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+
+            }
+        } else {
+            for (int i = 0; i < 10; i++) {
+                String[] test02 = bemessB23.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                }else if(amp > 100){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+            }
+
+        }
+
+        case 4:
+
+
+
+        if (volt == 230) {
+            for (int i = 0; i < 10; i++) {
+                String[] test02 = bemessC12.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                } else if(amp > 35){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+
+            }
+        } else {
+            for (int i = 0; i < 10; i++) {
+                String[] test02 = bemessC13.get(i);
+                if (amp3 <= Float.valueOf(test02[0])) {
+                    quer0 = Float.valueOf(test02[1]);
+
+                    break;
+                }else if(amp > 125){
+
+                    showAmpere.setText("Zu Hoher Strom für diese Verlegemethode");
+                    break;
+                }
+
+            }
+
+        }
+
+    }
 
         String text00 = null;
         String querschnitt = null;
@@ -533,10 +720,11 @@ public class KabelBerechnung extends AppCompatActivity {
             querschnitt = "Querschnitt =";
             querschnitt = querschnitt + String.valueOf(quer0);
             querschnitt = querschnitt + "mm²";
-        } else {
+        }
 
-            Toast.makeText(new KabelBerechnung(), "Leider sind wir auf kein Ergebnis gekommen",
-                    Toast.LENGTH_LONG).show();
+        else {
+
+                    showAmpere.setText("Leider sind wir auf kein Ergebnis gekommen");
         }
 
 
@@ -544,7 +732,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
         //Intent i = new Intent(this, SendKabel.class);
         //startActivity(i);
-        TextView showAmpere = (TextView) findViewById(R.id.textView10);
+
         showAmpere.setText(querschnitt);
 
        // showAmpere.setVisibility(View.VISIBLE);
