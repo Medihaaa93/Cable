@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BerrechnungSicherung extends AppCompatActivity {
 
@@ -32,12 +36,63 @@ public class BerrechnungSicherung extends AppCompatActivity {
         Spinner spannungsSpinner = (Spinner) findViewById(R.id.spinner2);
         int spannungsposition = spannungsSpinner.getSelectedItemPosition();  // Hier wissen wir was ausgewählt wurde Spannung
 
-        Spinner querrschnittspinner = (Spinner) findViewById(R.id.spinner1) ;
-        float querrschnitt = querrschnittspinner.getSelectedItemPosition();
+        TextView textentry = (TextView) findViewById(R.id.textView10);
 
 
-        Intent i = new Intent(this, SendSicherung.class);
-        startActivity(i);
+        List<String[]> sicherungen = new ArrayList<>();
+
+        sicherungen.add(0, new String []{"6", "1.0"});
+        sicherungen.add(1, new String []{"10", "1.0"});
+        sicherungen.add(2, new String []{"13", "1.5"});
+        sicherungen.add(3, new String []{"16", "2.5"});
+        sicherungen.add(4, new String []{"20", "4"});
+        sicherungen.add(5, new String []{"25", "6"});
+        sicherungen.add(5, new String []{"32", "10"});
+        sicherungen.add(6, new String []{"40", "10"});
+        sicherungen.add(7, new String []{"50", "16"});
+        sicherungen.add(8, new String []{"63", "25"});
+        sicherungen.add(9, new String []{"80", "35"});
+
+
+        double ampere = 0;
+        String text;
+        switch (spannungsposition) {
+
+
+            case 0:
+                ampere = leistung / 230;
+                for (int i = 0; i<=10; i++){
+                    if (ampere <= Integer.valueOf(sicherungen.get(i)[0])){
+                        text = "Empfohlene Sicherung :";
+                        text = text + sicherungen.get(i)[0];
+                        text = text + " A";
+                        text = text + " Empfohlener Querschnitt :";
+                        text = text + sicherungen.get(i)[1];
+                        text = text + " mm²";
+                    }
+                }
+                break;
+            case 1:
+                ampere = leistung / (400 * Math.sqrt(3));
+                for (int i = 0; i<=10; i++){
+                    if (ampere <= Integer.valueOf(sicherungen.get(i)[0])){
+                        text = "Empfohlene Sicherung :";
+                        text = text + sicherungen.get(i)[0];
+                        text = text + " A";
+                        text = text + " Empfohlener Querschnitt :";
+                        text = text + sicherungen.get(i)[1];
+                        text = text + " mm²";
+                    }
+                }
+                break;
+                break;
+
+
+        }
+
+
+
+
 
 
     }
