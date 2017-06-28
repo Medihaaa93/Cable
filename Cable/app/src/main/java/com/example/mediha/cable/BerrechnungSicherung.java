@@ -137,7 +137,7 @@ public class BerrechnungSicherung extends AppCompatActivity {
 
     public Bitmap viewToBitmap(View view) {
         view = view.getRootView();
-        LinearLayout view1 = (LinearLayout) view.findViewById(R.id.linearlayout);
+        LinearLayout view1 = (LinearLayout) view.findViewById(R.id.linearlayout1);
         view1.setDrawingCacheEnabled(true);
         view1.buildDrawingCache();
         view1.setBackgroundColor(Color.rgb(238,238,238));
