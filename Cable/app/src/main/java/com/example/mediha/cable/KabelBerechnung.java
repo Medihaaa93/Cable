@@ -1,6 +1,5 @@
 package com.example.mediha.cable;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,28 +8,26 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.data;
 
 public class KabelBerechnung extends AppCompatActivity {
 
     List<Float> temp60;
     List<Float> temp70;
-    List<Float> temp90;
-    List<Float> haufa;
-    List<Float> haufc;
-    List<Float> bemessA12;
-    List<Float> bemessA13;
-    List<Float> bemessA22;
-    List<Float> bemessA23;
-    List<Float> bemessB12;
-    List<Float> bemessB13;
-    List<Float> bemessB22;
-    List<Float> bemessB23;
-    List<Float> bemessC12;
-    List<Float> bemessC13;
+    List<Float> temp90 = new ArrayList<>();
+    List<Float> haufa = new ArrayList<>();
+    List<Float> haufc = new ArrayList<>();
+    List<String[]> bemessA12 = new ArrayList<>();
+    List<String> bemessA13 = new ArrayList<>();
+    List<String> bemessA22 = new ArrayList<>();
+    List<String> bemessA23 = new ArrayList<>();
+    List<String> bemessB12 = new ArrayList<>();
+    List<String> bemessB13 = new ArrayList<>();
+    List<String> bemessB22 = new ArrayList<>();
+    List<String> bemessB23 = new ArrayList<>();
+    List<String> bemessC12 = new ArrayList<>();
+    List<String> bemessC13 = new ArrayList<>();
 
 
     @Override
@@ -42,8 +39,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
     }
 
-
-    private void berechnungStarten(){
+    public void berechnen(View view) {
 
         Button btnStart = (Button) findViewById(R.id.buttonStart);
         btnStart.setOnClickListener(new View.OnClickListener() {
@@ -52,12 +48,8 @@ public class KabelBerechnung extends AppCompatActivity {
                 berechnung();
             }
         });
-
-
-
-
-
     }
+
 
     private void berechnung() {
 
@@ -84,7 +76,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
         double amp = 0;
         float volt = 0;
-        double quer0 = 0;
+        int quer0 = 0;
 
         switch (spannungsposition) {
 
@@ -126,22 +118,22 @@ public class KabelBerechnung extends AppCompatActivity {
         temp70.add(65, (float) 0.33);
 
 */
-        temp90.add(10, (float) 1.11);
-        temp90.add(15, (float) 1.08);
-        temp90.add(20, (float) 1.04);
-        temp90.add(25, (float) 1);
-        temp90.add(30, (float) 0.96);
-        temp90.add(35, (float) 0.92);
-        temp90.add(40, (float) 0.88);
-        temp90.add(45, (float) 0.84);
-        temp90.add(50, (float) 0.79);
-        temp90.add(55, (float) 0.73);
-        temp90.add(60, (float) 0.68);
-        temp90.add(65, (float) 0.63);
-        temp90.add(70, (float) 0.56);
-        temp90.add(75, (float) 0.48);
-        temp90.add(80, (float) 0.39);
-        temp90.add(85, (float) 0.28);
+        temp90.add(0, (float) 1.11);
+        temp90.add(1, (float) 1.08);
+        temp90.add(2, (float) 1.04);
+        temp90.add(3, (float) 1);
+        temp90.add(4, (float) 0.96);
+        temp90.add(5, (float) 0.92);
+        temp90.add(6, (float) 0.88);
+        temp90.add(7, (float) 0.84);
+        temp90.add(8, (float) 0.79);
+        temp90.add(9, (float) 0.73);
+        temp90.add(10, (float) 0.68);
+        temp90.add(11, (float) 0.63);
+        temp90.add(12, (float) 0.56);
+        temp90.add(13, (float) 0.48);
+        temp90.add(14, (float) 0.39);
+        temp90.add(15, (float) 0.28);
 
         int[] arrtemp = {10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85};
 
@@ -149,34 +141,34 @@ public class KabelBerechnung extends AppCompatActivity {
 
         int[] arrhauf = {1, 2, 3, 4, 5, 6, 8, 10, 12, 14};
 
-        haufa.add(1, (float) 1.00);
-        haufa.add(2, (float) 0.8);
-        haufa.add(3, (float) 0.7);
-        haufa.add(4, (float) 0.65);
-        haufa.add(5, (float) 0.6);
-        haufa.add(6, (float) 0.57);
-        haufa.add(8, (float) 0.52);
-        haufa.add(10, (float) 0.48);
-        haufa.add(12, (float) 0.45);
-        haufa.add(14, (float) 0.43);
+        haufa.add(0, (float) 1.00);
+        haufa.add(1, (float) 0.8);
+        haufa.add(2, (float) 0.7);
+        haufa.add(3, (float) 0.65);
+        haufa.add(4, (float) 0.6);
+        haufa.add(5, (float) 0.57);
+        haufa.add(6, (float) 0.52);
+        haufa.add(7, (float) 0.48);
+        haufa.add(8, (float) 0.45);
+        haufa.add(9, (float) 0.43);
 
-        haufc.add(1, (float) 1.00);
-        haufc.add(2, (float) 0.85);
-        haufc.add(3, (float) 0.79);
-        haufc.add(4, (float) 0.73);
-        haufc.add(5, (float) 0.72);
+        haufc.add(0, (float) 1.00);
+        haufc.add(1, (float) 0.85);
+        haufc.add(2, (float) 0.79);
+        haufc.add(3, (float) 0.73);
+        haufc.add(4, (float) 0.72);
+        haufc.add(5, (float) 0.71);
         haufc.add(6, (float) 0.71);
-        haufc.add(8, (float) 0.71);
-        haufc.add(10, (float) 0.70);
-        haufc.add(12, (float) 0.70);
-        haufc.add(14, (float) 0.70);
+        haufc.add(7, (float) 0.70);
+        haufc.add(8, (float) 0.70);
+        haufc.add(9, (float) 0.70);
 
 
         // Index = Bemessungsstrom --- Wert = Querschnitt
 
-        bemessA12.add(13, (float) 1.5);
-        bemessA12.add(20, (float) 2.5);
-        bemessA12.add(25, (float) 4);
+        bemessA12.add(0, new String []{"13", "1.5"});
+        bemessA12.add(1, new String []{"20", "2.5"});
+        bemessA12.add(2, new String []{"25", "4"});
 
         bemessA13.add(13, (float) 1.5);
         bemessA13.add(16, (float) 2.5);
@@ -266,9 +258,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 int[] arrA13 = {13, 16, 20, 25, 40, 50, 63, 80};
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrA12[i]) {
-                            amp2 = arrA12[i];
-                            quer0 = bemessA12.get(arrA12[i]);
+                        if (amp <= Integer.valueOf(bemessA12.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessA12.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessA12.get(i)[1]);
 
                             break;
                         } else {
@@ -281,13 +273,15 @@ public class KabelBerechnung extends AppCompatActivity {
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrA13[i]) {
-                            amp2 = arrA13[i];
-                            quer0 = bemessA13.get(arrA13[i]);
+                        if (amp <= Integer.valueOf(bemessA13.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessA13.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessA13.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
+
                             break;
                         }
 
@@ -436,29 +430,29 @@ public class KabelBerechnung extends AppCompatActivity {
         // Berechnung mit Faktoren
 
         float amp3 = 0;
-        float tempfaktor = arrtemp[tempposition];
+        float tempfaktor = temp90.get(tempposition);
         float faktorhauf = 0;
 
         switch (verlegeposition) {
 
             case 0:
 
-                faktorhauf = haufa.get(arrhauf[haufposition]);
+                faktorhauf = haufa.get(haufposition);
                 amp3 = (amp2 * tempfaktor * faktorhauf);
 
             case 1:
 
-                faktorhauf = haufa.get(arrhauf[haufposition]);
+                faktorhauf = haufa.get(haufposition);
                 amp3 = (amp2 * tempfaktor * faktorhauf);
             case 2:
 
-                faktorhauf = haufa.get(arrhauf[haufposition]);
+                faktorhauf = haufa.get(haufposition);
                 amp3 = (amp2 * tempfaktor * faktorhauf);
             case 3:
-                faktorhauf = haufa.get(arrhauf[haufposition]);
+                faktorhauf = haufa.get(haufposition);
                 amp3 = (amp2 * tempfaktor * faktorhauf);
             case 4:
-                faktorhauf = haufc.get(arrhauf[haufposition]);
+                faktorhauf = haufc.get(haufposition);
                 amp3 = (amp2 * tempfaktor * faktorhauf);
 
 
@@ -487,8 +481,9 @@ public class KabelBerechnung extends AppCompatActivity {
         //Intent i = new Intent(this, SendKabel.class);
         //startActivity(i);
 
+
     }
 
-    
+
 
 }
