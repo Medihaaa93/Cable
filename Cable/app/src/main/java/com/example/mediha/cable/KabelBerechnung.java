@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,8 +27,8 @@ public class KabelBerechnung extends AppCompatActivity {
     List<String[]> bemessB13 = new ArrayList<>();
     List<String[]> bemessB22 = new ArrayList<>();
     List<String[]> bemessB23 = new ArrayList<>();
-    List<String> bemessC12 = new ArrayList<>();
-    List<String> bemessC13 = new ArrayList<>();
+    List<String[]> bemessC12 = new ArrayList<>();
+    List<String[]> bemessC13 = new ArrayList<>();
 
 
     @Override
@@ -222,18 +223,18 @@ public class KabelBerechnung extends AppCompatActivity {
         bemessB23.add(7, new String []{"100", "35"});
 
 
-        bemessC12.add(16, (float) 1.5);
-        bemessC12.add(25, (float) 2.5);
-        bemessC12.add(35, (float) 4);
+        bemessC12.add( 0, new String [] {"16", "1.5"});
+        bemessC12.add( 1, new String [] {"25", "2.5"});
+        bemessC12.add( 2, new String [] {"35", "4"});
 
-        bemessC13.add(16, (float) 1.5);
-        bemessC13.add(25, (float) 2.5);
-        bemessC13.add(35, (float) 4);
-        bemessC13.add(40, (float) 6);
-        bemessC13.add(63, (float) 10);
-        bemessC13.add(80, (float) 16);
-        bemessC13.add(100, (float) 25);
-        bemessC13.add(125, (float) 35);
+        bemessC13.add( 3, new String [] {"16", "1.5"});
+        bemessC13.add( 4, new String [] {"25", "2.5"});
+        bemessC13.add( 5, new String [] {"35", "4"});
+        bemessC13.add( 6, new String [] {"40", "6"});
+        bemessC13.add( 7, new String [] {"63", "10"});
+        bemessC13.add( 8, new String [] {"80", "16"});
+        bemessC13.add( 9, new String [] {"100", "25"});
+        bemessC13.add( 10, new String [] {"125", "35"});
 
 
         // Anfang der Berechnung
@@ -254,8 +255,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
             case 0:
 
-                int[] arrA12 = {13, 20, 25};
-                int[] arrA13 = {13, 16, 20, 25, 40, 50, 63, 80};
+
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessA12.get(i)[0])) {
@@ -292,30 +292,33 @@ public class KabelBerechnung extends AppCompatActivity {
 
             case 1:
 
-                int[] arrA22 = {13, 16, 25};
-                int[] arrA23 = {13, 16, 20, 25, 35, 50, 63, 80};
+
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrA22[i]) {
-                            amp2 = arrA22[i];
-                            quer0 = bemessA22.get(arrA22[i]);
+                        if (amp <= Integer.valueOf(bemessA22.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessA22.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessA22.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
+
                             break;
                         }
 
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrA23[i]) {
-                            amp2 = arrA23[i];
-                            quer0 = bemessA23.get(arrA23[i]);
+                        if (amp <= Integer.valueOf(bemessA23.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessA23.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessA23.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
+
                             break;
                         }
 
@@ -327,30 +330,33 @@ public class KabelBerechnung extends AppCompatActivity {
 
             case 2:
 
-                int[] arrB12 = {16, 20, 25};
-                int[] arrB13 = {16, 20, 25, 35, 50, 63, 80, 100};
+
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrB12[i]) {
-                            amp2 = arrB12[i];
-                            quer0 = bemessB12.get(arrB12[i]);
+                        if (amp <= Integer.valueOf(bemessB12.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessB12.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessB12.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
+
                             break;
                         }
 
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrB13[i]) {
-                            amp2 = arrB13[i];
-                            quer0 = bemessB13.get(arrB13[i]);
+                        if (amp <= Integer.valueOf(bemessB13.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessB13.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessB13.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
+
                             break;
                         }
                     }
@@ -359,30 +365,33 @@ public class KabelBerechnung extends AppCompatActivity {
 
             case 3:
 
-                int[] arrB22 = {16, 20, 25};
-                int[] arrB23 = {16, 20, 25, 35, 50, 63, 80, 100};
+
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrB22[i]) {
-                            amp2 = arrB22[i];
-                            quer0 = bemessB22.get(arrB22[i]);
+                        if (amp <= Integer.valueOf(bemessB22.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessB22.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessB22.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
+
                             break;
                         }
 
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrB23[i]) {
-                            amp2 = arrB23[i];
-                            quer0 = bemessB23.get(arrB23[i]);
+                        if (amp <= Integer.valueOf(bemessB23.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessB23.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessB23.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
+
                             break;
                         }
                     }
@@ -392,32 +401,34 @@ public class KabelBerechnung extends AppCompatActivity {
             case 4:
 
 
-                int[] arrC12 = {16, 20, 25};
-                int[] arrC13 = {16, 20, 25, 35, 50, 63, 80, 100};
+
                 if (volt == 230) {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrC12[i]) {
-                            amp2 = arrC12[i];
-                            quer0 = bemessC12.get(arrC12[i]);
+                        if (amp <= Integer.valueOf(bemessC12.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessC12.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessC12.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
+
                             break;
                         }
 
                     }
                 } else {
                     for (int i = 0; i < 8; i++) {
-                        if (amp <= arrC13[i]) {
-                            amp2 = arrC13[i];
-                            quer0 = bemessC13.get(arrC13[i]);
+                        if (amp <= Integer.valueOf(bemessC13.get(i)[0])) {
+                            amp2 = Integer.valueOf(bemessC13.get(i)[0]);
+                            quer0 = Integer.valueOf(bemessC13.get(i)[1]);
+
                             break;
                         } else {
                             Toast.makeText(new KabelBerechnung(), "Ampere Overflow !",
                                     Toast.LENGTH_LONG).show();
-                            break;
 
+                            break;
                         }
                     }
 
@@ -475,11 +486,14 @@ public class KabelBerechnung extends AppCompatActivity {
         }
 
 
-        Toast.makeText(new KabelBerechnung(), text00,
-                Toast.LENGTH_LONG).show();
+
 
         //Intent i = new Intent(this, SendKabel.class);
         //startActivity(i);
+        TextView showAmpere = (TextView) findViewById(R.id.textView10);
+        showAmpere.setText(text00);
+
+        showAmpere.setVisibility(View.VISIBLE);
 
 
     }
