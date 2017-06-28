@@ -42,8 +42,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
     }
 
-
-    private void berechnungStarten(){
+    public void berechnen(View view) {
 
         Button btnStart = (Button) findViewById(R.id.buttonStart);
         btnStart.setOnClickListener(new View.OnClickListener() {
@@ -52,12 +51,8 @@ public class KabelBerechnung extends AppCompatActivity {
                 berechnung();
             }
         });
-
-
-
-
-
     }
+
 
     private void berechnung() {
 
@@ -487,8 +482,9 @@ public class KabelBerechnung extends AppCompatActivity {
         //Intent i = new Intent(this, SendKabel.class);
         //startActivity(i);
 
+
     }
 
-    
+
 
 }
