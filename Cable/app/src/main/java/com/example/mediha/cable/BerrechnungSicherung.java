@@ -120,6 +120,7 @@ public class BerrechnungSicherung extends AppCompatActivity {
         Bitmap test = viewToBitmap(v);
 
         File f = new File (getExternalCacheDir()+"/image.png");
+        f.delete();
         try {
             FileOutputStream outStream = new FileOutputStream(f);
             test.compress(Bitmap.CompressFormat.PNG, 100, outStream);
