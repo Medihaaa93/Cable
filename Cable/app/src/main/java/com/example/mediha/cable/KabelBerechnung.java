@@ -64,7 +64,7 @@ public class KabelBerechnung extends AppCompatActivity {
             public void onClick(View v) {
                 berechnung();
                 btnStart.setVisibility(View.INVISIBLE);
-                exportActivity();
+                takepic(view);
 
                            }
         });
