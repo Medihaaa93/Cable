@@ -5,25 +5,25 @@
     <item>A…Aderleitungen in Rohr, in wärmedämmenden Materialien in
         Wänden, Decken oder Fußböden verlegt</item>
 
-    <item>A2…mehradrige Mantelleitungen, mit oder ohne Rohr in wärmedämmenden
+        <item>A2…mehradrige Mantelleitungen, mit oder ohne Rohr in wärmedämmenden
         Materialien in Wänden, Decken oder Fußböden verlegt </item>
 
-    <item>B…Aderleitungen in Rohren oder Kanälen, auf Wänden oder Decken
+        <item>B…Aderleitungen in Rohren oder Kanälen, auf Wänden oder Decken
         oder in Wänden, Decken oder Fußböden aus Mauerwerk oder
         Beton verlegt</item>
 
-    <item>B2…mehradrige Mantelleitungen in Rohren oder Kanälen, auf oder in
+        <item>B2…mehradrige Mantelleitungen in Rohren oder Kanälen, auf oder in
         Wänden, Decken oder Fußböden verlegt</item>
 
-    <item>C…mehradrige Mantelleitungen ohne Rohr unter Putz oder frei oder
+        <item>C…mehradrige Mantelleitungen ohne Rohr unter Putz oder frei oder
         in offenen Kanälen auf Wänden, Decken oder Fußböden;
         Stegleitungen unter Putz</item>
 
     </string-array>
 
     <string-array name="spannung">
-    <item>230 Volt</item>
-    <item>400 Volt</item>
+        <item>230 Volt</item>
+        <item>400 Volt</item>
     </string-array>
 
     <string-array name="hauf">
@@ -38,7 +38,6 @@
         <item>12 Leitungen / Kabeln</item>
         <item>14 Leitungen / Kabeln</item>
     </string-array>
-
 
 
 </resources>

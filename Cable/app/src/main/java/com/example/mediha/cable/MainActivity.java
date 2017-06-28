@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import static android.R.attr.id;
 import static android.R.attr.scrollbarDefaultDelayBeforeFade;
+import static android.view.View.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,12 +20,13 @@ public class MainActivity extends AppCompatActivity {
         berrechnungSicherungIntent();
         berechnungKabel();
         impressumBtn();
+        converterWatToAmp();
 
     }
 
     public void berrechnungSicherungIntent() { //Sicherung ist ImageView4
         ImageView sicherung = (ImageView) findViewById(R.id.imageView4);
-        sicherung.setOnClickListener(new View.OnClickListener() {
+        sicherung.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), BerrechnungSicherung.class);
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void berechnungKabel() { //Kable ist ImageView3
         ImageView sicherung = (ImageView) findViewById(R.id.imageView3);
-        sicherung.setOnClickListener(new View.OnClickListener() {
+        sicherung.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), KabelBerechnung.class);
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn = (Button) findViewById(R.id.button);
 
-        btn.setOnClickListener(new View.OnClickListener()
+        btn.setOnClickListener(new OnClickListener()
 
         {
             @Override
@@ -61,4 +63,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void converterWatToAmp() {
+        Button convertBtn = (Button) findViewById(R.id.button2);
+
+        convertBtn.setOnClickListener(new OnClickListener()
+
+        {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), ConverterWatToAmpere.class);
+                startActivity(i);
+            }
+        });
+
+    }
 }
+
