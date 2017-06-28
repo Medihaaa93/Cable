@@ -431,8 +431,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
         }
 
-        Intent i = new Intent(this, SendKabel.class);
-        startActivity(i);
+
 
         // Berechnung mit Faktoren
 

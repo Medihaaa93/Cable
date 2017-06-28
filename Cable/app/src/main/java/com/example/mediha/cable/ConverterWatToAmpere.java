@@ -2,10 +2,12 @@ package com.example.mediha.cable;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ConverterWatToAmpere extends AppCompatActivity {
 
@@ -22,14 +24,35 @@ public class ConverterWatToAmpere extends AppCompatActivity {
     }
 
     private void berrechnungConvert(){
+
+        double ampere;
+        String text = null;
+
         Spinner spannungSpinner = (Spinner) findViewById(R.id.spinner2);
         int spannung = spannungSpinner.getSelectedItemPosition();
 
         EditText leistungFeld = (EditText) findViewById(R.id.editLeistung);
         float leistung = Float.valueOf(leistungFeld.getText().toString());
 
-        float ampere= spannung/leistung;
-        String text = String.valueOf(ampere);
+
+            switch (spannung) {
+
+                case 0:
+                    ampere = leistung / 230;
+                    text = String.valueOf(ampere);
+                    text = text + " A";
+                    break;
+                case 1:
+                    ampere = leistung / (400 * Math.sqrt(3));
+                    text = String.valueOf(ampere);
+                    text = text + " A";
+                    break;
+
+
+            }
+
+        
+       
 
         TextView showAmpere = (TextView) findViewById(R.id.textView10);
         showAmpere.setText(text);
