@@ -18,10 +18,27 @@
     <item>C…mehradrige Mantelleitungen ohne Rohr unter Putz oder frei oder
         in offenen Kanälen auf Wänden, Decken oder Fußböden;
         Stegleitungen unter Putz</item>
-</string-array>
+
+    </string-array>
 
     <string-array name="spannung">
     <item>230 Volt</item>
     <item>400 Volt</item>
     </string-array>
+
+    <string-array name="hauf">
+        <item>1 Leitung / Kabel</item>
+        <item>2 Leitungen / Kabeln</item>
+        <item>3 Leitungen / Kabeln</item>
+        <item>4 Leitungen / Kabeln</item>
+        <item>5 Leitungen / Kabeln</item>
+        <item>6 Leitungen / Kabeln</item>
+        <item>8 Leitungen / Kabeln</item>
+        <item>10 Leitungen / Kabeln</item>
+        <item>12 Leitungen / Kabeln</item>
+        <item>14 Leitungen / Kabeln</item>
+    </string-array>
+
+
+
 </resources>
