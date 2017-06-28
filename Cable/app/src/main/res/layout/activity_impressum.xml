@@ -32,9 +32,9 @@
             android:id="@+id/imageLabel"
             android:layout_width="100sp"
             android:layout_height="150sp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/photokarim"/>
+            android:src="@drawable/photokarim"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:id="@+id/textLabel"
@@ -88,6 +88,20 @@
             android:textSize="14sp"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"/>
+
+        <TextView
+            android:id="@+id/textLabel8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Imp5"
+            android:textSize="9sp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_below="@+id/textLabel4"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp" />
+
+
     </RelativeLayout>
         </LinearLayout>
     </ScrollView>

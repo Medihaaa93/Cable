@@ -55,6 +55,8 @@ public class KabelBerechnung extends AppCompatActivity {
             public void onClick(View v) {
                 berechnung();
                 btnStart.setVisibility(View.INVISIBLE);
+                exportActivity();
+
 
             }
         });
@@ -514,10 +516,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
     public void exportActivity(){
         View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
-
-
-
-
+        getScreenShot(rootView);
     }
 
     public static Bitmap getScreenShot(View view) {
@@ -525,6 +524,7 @@ public class KabelBerechnung extends AppCompatActivity {
         screenView.setDrawingCacheEnabled(true);
         Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
         screenView.setDrawingCacheEnabled(false);
+       
         return bitmap;
     }
 
