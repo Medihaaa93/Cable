@@ -1,5 +1,10 @@
 package com.example.mediha.cable;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,11 +49,13 @@ public class KabelBerechnung extends AppCompatActivity {
 
     public void berechnen(View view) {
 
-        Button btnStart = (Button) findViewById(R.id.buttonStart);
+        final Button btnStart = (Button) findViewById(R.id.buttonStart);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 berechnung();
+                btnStart.setVisibility(View.INVISIBLE);
+
             }
         });
     }
@@ -500,8 +509,54 @@ public class KabelBerechnung extends AppCompatActivity {
         showAmpere.setVisibility(View.VISIBLE);
 
 
+
     }
 
+    public void exportActivity(){
+        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
 
+
+
+    }
+
+    public static Bitmap getScreenShot(View view) {
+        View screenView = view.getRootView();
+        screenView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
+        screenView.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+
+    public static void store(Bitmap bm, String fileName){
+        final String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
+        File dir = new File(dirPath);
+        if(!dir.exists())
+            dir.mkdirs();
+        File file = new File(dirPath, fileName);
+        try {
+            FileOutputStream fOut = new FileOutputStream(file);
+            bm.compress(Bitmap.CompressFormat.PNG, 85, fOut);
+            fOut.flush();
+            fOut.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void shareImage(File file){
+        Uri uri = Uri.fromFile(file);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("image/*");
+
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
+        intent.putExtra(android.content.Intent.EXTRA_TEXT, "");
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        try {
+            startActivity(Intent.createChooser(intent, "Share Screenshot"));
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(KabelBerechnung.this, "No App Available", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
