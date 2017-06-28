@@ -77,7 +77,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
         double amp = 0;
         float volt = 0;
-        String[] quer0 = 0;
+        Float quer0 = Float.valueOf(0);
 
         switch (spannungsposition) {
 
@@ -227,14 +227,14 @@ public class KabelBerechnung extends AppCompatActivity {
         bemessC12.add( 1, new String [] {"25", "2.5"});
         bemessC12.add( 2, new String [] {"35", "4"});
 
-        bemessC13.add( 3, new String [] {"16", "1.5"});
-        bemessC13.add( 4, new String [] {"25", "2.5"});
-        bemessC13.add( 5, new String [] {"35", "4"});
-        bemessC13.add( 6, new String [] {"40", "6"});
-        bemessC13.add( 7, new String [] {"63", "10"});
-        bemessC13.add( 8, new String [] {"80", "16"});
-        bemessC13.add( 9, new String [] {"100", "25"});
-        bemessC13.add( 10, new String [] {"125", "35"});
+        bemessC13.add( 0, new String [] {"16", "1.5"});
+        bemessC13.add( 1, new String [] {"25", "2.5"});
+        bemessC13.add( 2, new String [] {"35", "4"});
+        bemessC13.add( 3, new String [] {"40", "6"});
+        bemessC13.add( 4, new String [] {"63", "10"});
+        bemessC13.add( 5, new String [] {"80", "16"});
+        bemessC13.add( 6, new String [] {"100", "25"});
+        bemessC13.add( 7, new String [] {"125", "35"});
 
 
         // Anfang der Berechnung
@@ -260,7 +260,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessA12.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessA12.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessA12.get(i)[1]);
+                            quer0 = Float.valueOf(bemessA12.get(i)[1]);
 
                             break;
                         } else {
@@ -275,7 +275,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessA13.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessA13.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessA13.get(i)[1]);
+                            quer0 = Float.valueOf(bemessA13.get(i)[1]);
 
                             break;
                         } else {
@@ -297,7 +297,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessA22.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessA22.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessA22.get(i)[1]);
+                            quer0 = Float.valueOf(bemessA22.get(i)[1]);
 
                             break;
                         } else {
@@ -312,7 +312,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessA23.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessA23.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessA23.get(i)[1]);
+                            quer0 = Float.valueOf(bemessA23.get(i)[1]);
 
                             break;
                         } else {
@@ -335,7 +335,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessB12.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessB12.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessB12.get(i)[1]);
+                            quer0 = Float.valueOf(bemessB12.get(i)[1]);
 
                             break;
                         } else {
@@ -350,7 +350,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessB13.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessB13.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessB13.get(i)[1]);
+                            quer0 = Float.valueOf(bemessB13.get(i)[1]);
 
                             break;
                         } else {
@@ -370,7 +370,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessB22.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessB22.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessB22.get(i)[1]);
+                            quer0 = Float.valueOf(bemessB22.get(i)[1]);
 
                             break;
                         } else {
@@ -385,7 +385,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessB23.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessB23.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessB23.get(i)[1]);
+                            quer0 = Float.valueOf(bemessB23.get(i)[1]);
 
                             break;
                         } else {
@@ -406,7 +406,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessC12.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessC12.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessC12.get(i)[1]);
+                            quer0 = Float.valueOf(bemessC12.get(i)[1]);
 
                             break;
                         } else {
@@ -421,7 +421,7 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 8; i++) {
                         if (amp <= Integer.valueOf(bemessC13.get(i)[0])) {
                             amp2 = Integer.valueOf(bemessC13.get(i)[0]);
-                            quer0 = Integer.valueOf(bemessC13.get(i)[1]);
+                            quer0 = Float.valueOf(bemessC13.get(i)[1]);
 
                             break;
                         } else {
