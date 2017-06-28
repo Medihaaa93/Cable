@@ -1,9 +1,12 @@
 package com.example.mediha.cable;
 
+import android.content.Intent;
 import android.print.pdf.PrintedPdfDocument;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 public class BerrechnungSicherung extends AppCompatActivity {
 
@@ -16,38 +19,26 @@ public class BerrechnungSicherung extends AppCompatActivity {
 
     public void startBtn(View view) {
 
-
-
+        berechnung();
 
 
     }
-    //************************************************************************* PDFmaker
-/*
-    public void makePDF (){
 
-        // open a new document
-        PrintedPdfDocument document = new PrintedPdfDocument(context,
-                printAttributes);
+    private void berechnung() {
 
-        // start a page
-        Page page = document.startPage(0);
+        EditText textLeistung = (EditText) findViewById(R.id.editLeistung);
+        float leistung = Float.valueOf(textLeistung.getText().toString()); // Leistung in Meter
 
-        // draw something on the page
-        View content = getContentView();
-        content.draw(page.getCanvas());
+        Spinner spannungsSpinner = (Spinner) findViewById(R.id.spinner2);
+        int spannungsposition = spannungsSpinner.getSelectedItemPosition();  // Hier wissen wir was ausgewählt wurde Spannung
 
-        // finish the page
-        document.finishPage(page);
-
-        // add more pages
-
-        // write the document content
-        document.writeTo(getOutputStream());
-
-        //close the document
-        document.close();
+        Spinner querrschnittspinner = (Spinner) findViewById(R.id.spinner1) ;
+        float querrschnitt = querrschnittspinner.getSelectedItemPosition();
 
 
+        Intent i = new Intent(this, SendSicherung.class);
+        startActivity(i);
 
-    }***************************************************************************************/
+
+    }
 }
