@@ -19,13 +19,13 @@ public class KabelBerechnung extends AppCompatActivity {
     List<Float> haufa = new ArrayList<>();
     List<Float> haufc = new ArrayList<>();
     List<String[]> bemessA12 = new ArrayList<>();
-    List<String> bemessA13 = new ArrayList<>();
-    List<String> bemessA22 = new ArrayList<>();
-    List<String> bemessA23 = new ArrayList<>();
-    List<String> bemessB12 = new ArrayList<>();
-    List<String> bemessB13 = new ArrayList<>();
-    List<String> bemessB22 = new ArrayList<>();
-    List<String> bemessB23 = new ArrayList<>();
+    List<String[]> bemessA13 = new ArrayList<>();
+    List<String[]> bemessA22 = new ArrayList<>();
+    List<String[]> bemessA23 = new ArrayList<>();
+    List<String[]> bemessB12 = new ArrayList<>();
+    List<String[]> bemessB13 = new ArrayList<>();
+    List<String[]> bemessB22 = new ArrayList<>();
+    List<String[]> bemessB23 = new ArrayList<>();
     List<String> bemessC12 = new ArrayList<>();
     List<String> bemessC13 = new ArrayList<>();
 
@@ -76,7 +76,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
         double amp = 0;
         float volt = 0;
-        int quer0 = 0;
+        String[] quer0 = 0;
 
         switch (spannungsposition) {
 
@@ -170,56 +170,56 @@ public class KabelBerechnung extends AppCompatActivity {
         bemessA12.add(1, new String []{"20", "2.5"});
         bemessA12.add(2, new String []{"25", "4"});
 
-        bemessA13.add(13, (float) 1.5);
-        bemessA13.add(16, (float) 2.5);
-        bemessA13.add(25, (float) 4);
-        bemessA13.add(25, (float) 6);
-        bemessA13.add(40, (float) 10);
-        bemessA13.add(50, (float) 16);
-        bemessA13.add(63, (float) 25);
-        bemessA13.add(80, (float) 35);
+        bemessA13.add(0, new String []{"13", "1.5"});
+        bemessA13.add(1, new String []{"16", "2.5"});
+        bemessA13.add(2, new String []{"25", "4"});
+        bemessA13.add(3, new String []{"25", "6"});
+        bemessA13.add(4, new String []{"40", "10"});
+        bemessA13.add(5, new String []{"50", "16"});
+        bemessA13.add(6, new String []{"63", "25"});
+        bemessA13.add(7, new String []{"80", "35"});
+
+        bemessA22.add(0, new String []{"13", "1.5"});
+        bemessA22.add(1, new String []{"16", "2.5"});
+        bemessA22.add(2, new String []{"25", "4"});
 
 
-        bemessA22.add(13, (float) 1.5);
-        bemessA22.add(16, (float) 2.5);
-        bemessA22.add(25, (float) 4);
-
-        bemessA23.add(13, (float) 1.5);
-        bemessA23.add(16, (float) 2.5);
-        bemessA23.add(20, (float) 4);
-        bemessA23.add(25, (float) 6);
-        bemessA23.add(35, (float) 10);
-        bemessA23.add(50, (float) 16);
-        bemessA23.add(63, (float) 25);
-        bemessA23.add(80, (float) 35);
+        bemessA23.add(0, new String []{"13" ,"1.5"});
+        bemessA23.add(1, new String []{"16" ,"2.5"});
+        bemessA23.add(2, new String []{"20" ,"4"});
+        bemessA23.add(3, new String []{"25" ,"6"});
+        bemessA23.add(4, new String []{"35" ,"10"});
+        bemessA23.add(5, new String []{"50" ,"16"});
+        bemessA23.add(6, new String []{"63" ,"25"});
+        bemessA23.add(7, new String []{"80" ,"35"});
 
 
-        bemessB12.add(16, (float) 1.5);
-        bemessB12.add(25, (float) 2.5);
-        bemessB12.add(25, (float) 4);
+        bemessB12.add(0, new String []{"16", "1.5"});
+        bemessB12.add(1, new String []{"25", "2.5"});
+        bemessB12.add(2, new String []{"25", "4"});
 
-        bemessB13.add(16, (float) 1.5);
-        bemessB13.add(20, (float) 2.5);
-        bemessB13.add(25, (float) 4);
-        bemessB13.add(35, (float) 6);
-        bemessB13.add(50, (float) 10);
-        bemessB13.add(63, (float) 16);
-        bemessB13.add(80, (float) 25);
-        bemessB13.add(100, (float) 35);
+        bemessB13.add(0, new String []{"16", "1.5"});
+        bemessB13.add(1, new String []{"20", "2.5"});
+        bemessB13.add(2, new String []{"25", "4"});
+        bemessB13.add(3, new String []{"35", "6"});
+        bemessB13.add(4, new String []{"50", "10"});
+        bemessB13.add(5, new String []{"63", "16"});
+        bemessB13.add(6, new String []{"80", "25"});
+        bemessB13.add(7, new String []{"100", "35"});
 
 
-        bemessB22.add(16, (float) 1.5);
-        bemessB22.add(20, (float) 2.5);
-        bemessB22.add(25, (float) 4);
+        bemessB22.add(0, new String []{"16", "1.5"});
+        bemessB22.add(1, new String []{"20", "2.5"});
+        bemessB22.add(2, new String []{"25", "4"});
 
-        bemessB23.add(16, (float) 1.5);
-        bemessB23.add(20, (float) 2.5);
-        bemessB23.add(25, (float) 4);
-        bemessB23.add(35, (float) 6);
-        bemessB23.add(50, (float) 10);
-        bemessB23.add(63, (float) 16);
-        bemessB23.add(80, (float) 25);
-        bemessB23.add(100, (float) 35);
+        bemessB23.add(0, new String []{"16", "1.5"});
+        bemessB23.add(1, new String []{"20", "2.5"});
+        bemessB23.add(2, new String []{"25", "4"});
+        bemessB23.add(3, new String []{"35", "6"});
+        bemessB23.add(4, new String []{"50", "10"});
+        bemessB23.add(5, new String []{"63", "16"});
+        bemessB23.add(6, new String []{"80", "25"});
+        bemessB23.add(7, new String []{"100", "35"});
 
 
         bemessC12.add(16, (float) 1.5);
