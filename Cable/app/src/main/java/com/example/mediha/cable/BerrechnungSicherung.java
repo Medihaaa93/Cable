@@ -70,30 +70,38 @@ public class BerrechnungSicherung extends AppCompatActivity {
             case 0:
                 ampere = leistung / 230;
                 for (int i = 0; i<=10; i++){
-                    if (ampere <= Integer.valueOf(sicherungen.get(i)[0])){
+                    String[] test = sicherungen.get(i);
+                    if (ampere <= Double.valueOf(test[0])){
                         text = "Empfohlene Sicherung :";
-                        text = text + sicherungen.get(i)[0];
+                        text = text + test[0];
                         text = text + " A";
                         text = text + " Empfohlener Querschnitt :";
-                        text = text + sicherungen.get(i)[1];
+                        text = text + test[1];
                         text = text + " mm²";
+                        textentry.setText(text);
+
+                        break;
                     }
+
                 }
                 break;
             case 1:
                 ampere = leistung / (400 * Math.sqrt(3));
                 for (int i = 0; i<=10; i++){
-                    if (ampere <= Integer.valueOf(sicherungen.get(i)[0])){
+                    String[] test = sicherungen.get(i);
+                    if (ampere <= Double.valueOf(test[0])){
                         text = "Empfohlene Sicherung :";
-                        text = text + sicherungen.get(i)[0];
+                        text = text + test[0];
                         text = text + " A";
                         text = text + " Empfohlener Querschnitt :";
-                        text = text + sicherungen.get(i)[1];
+                        text = text + test[1];
                         text = text + " mm²";
+                        textentry.setText(text);
+                        break;
                     }
                 }
                 break;
-                break;
+
 
 
         }
