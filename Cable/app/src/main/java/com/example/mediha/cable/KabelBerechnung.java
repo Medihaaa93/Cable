@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.R.attr.delay;
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 import static com.example.mediha.cable.R.array.querschnitt;
 
 public class KabelBerechnung extends AppCompatActivity {
@@ -56,39 +58,14 @@ public class KabelBerechnung extends AppCompatActivity {
 
     }
 
-    public void berechnen(final View view) {
 
-        final Button btnStart = (Button) findViewById(R.id.buttonStart);
-        final TextView showAmpere = (TextView) findViewById(R.id.textView10);
+    public void berechnen(View view) {
+        final Button shareK = (Button) findViewById(R.id.btnShare) ;
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                berechnung();
-
-
-
-                           }
-        });
+        berechnung();
+        shareK.setVisibility(VISIBLE);
     }
 
-    public void share(final View view) {
-
-        final Button share = (Button) findViewById(R.id.buttonShare);
-
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Bitmap bitmap = getScreenShot(view);
-
-                shareImage(bitmap);
-
-
-
-            }
-        });
-    }
 
     private void berechnung() {
 
@@ -746,25 +723,14 @@ public class KabelBerechnung extends AppCompatActivity {
     }
 
 
-
-    public static Bitmap getScreenShot(View view) {
-        View screenView = view.getRootView();
-        screenView.setDrawingCacheEnabled(true);
-        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
-        screenView.setDrawingCacheEnabled(false);
-        return bitmap;
-    }
-
-
-
-    public void shareImage(Bitmap bm){
-       View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+    public void shareK(View view) {
+        Bitmap test = viewToBitmap(view);
+        Button shareKa = (Button) findViewById(R.id.btnShare) ;
 
         File f = new File (getExternalCacheDir()+"/image.png");
-        f.deleteOnExit();
         try {
             FileOutputStream outStream = new FileOutputStream(f);
-            bm.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+            test.compress(Bitmap.CompressFormat.PNG, 100, outStream);
             outStream.flush();
             outStream.close();
 
@@ -772,13 +738,32 @@ public class KabelBerechnung extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Intent intent = new Intent(Intent.ACTION_SEND);
 
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        //intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, "Look this !");
         intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
         intent.setType("text/plain");
 
         startActivity(Intent.createChooser(intent, "Wählen"));
+
+        view.destroyDrawingCache();
+        shareKa.setVisibility(INVISIBLE);
+
+
+    }
+
+    public Bitmap viewToBitmap(View view) {
+
+        view = view.getRootView();
+        LinearLayout view1 = (LinearLayout) view.findViewById(R.id.kabelLayout1);
+        view1.setDrawingCacheEnabled(true);
+        view1.buildDrawingCache();
+        
+        Bitmap bm = view1.getDrawingCache();
+
+
+        return bm;
 
     }
 

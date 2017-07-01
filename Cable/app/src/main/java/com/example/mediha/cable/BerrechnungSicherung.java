@@ -1,9 +1,11 @@
 package com.example.mediha.cable;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Environment;
 import android.print.pdf.PrintedPdfDocument;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,8 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,12 +25,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+
+
 public class BerrechnungSicherung extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_berrechnung_sicherung);
+        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
     }
 
 
@@ -38,6 +47,8 @@ public class BerrechnungSicherung extends AppCompatActivity {
     }
 
     private void berechnung() {
+        Button share = (Button) findViewById(R.id.btnShare);
+        share.setVisibility(VISIBLE);
 
         EditText textLeistung = (EditText) findViewById(R.id.editLeistung);
         float leistung = Float.valueOf(textLeistung.getText().toString()); // Leistung in Meter
@@ -116,47 +127,18 @@ public class BerrechnungSicherung extends AppCompatActivity {
 
     }
 
-    public void shareS(View v) {
-        final Button share = (Button) findViewById(R.id.btnShare);
 
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    public void shareS(View view) {
 
 
-                Bitmap bitmap = getScreenShot(v);
+        Button share = (Button) findViewById(R.id.btnShare);
 
-                shareImage(bitmap);
-
-
-
-
-            }
-        });
-
-
-
-    };
-
-
-    public static Bitmap getScreenShot(View view) {
-        View screenView = view.getRootView();
-        screenView.setDrawingCacheEnabled(true);
-        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
-        screenView.setDrawingCacheEnabled(false);
-        return bitmap;
-    }
-
-
-
-    public void shareImage(Bitmap bm){
-        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+        Bitmap test = viewToBitmap(view);
 
         File f = new File (getExternalCacheDir()+"/image.png");
-        f.deleteOnExit();
         try {
             FileOutputStream outStream = new FileOutputStream(f);
-            bm.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+            test.compress(Bitmap.CompressFormat.PNG, 100, outStream);
             outStream.flush();
             outStream.close();
 
@@ -164,14 +146,37 @@ public class BerrechnungSicherung extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Intent intent = new Intent(Intent.ACTION_SEND);
 
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        //intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, "Look this !");
         intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
         intent.setType("text/plain");
 
         startActivity(Intent.createChooser(intent, "Wählen"));
+       // f.deleteOnExit();
+        view.destroyDrawingCache();
+
+        share.setVisibility(INVISIBLE);
+
+
+
 
     }
+
+    public Bitmap viewToBitmap(View view) {
+
+            view = view.getRootView();
+            LinearLayout view1 = (LinearLayout) view.findViewById(R.id.sicherungLayout1 );
+            view1.setDrawingCacheEnabled(true);
+            view1.buildDrawingCache();
+
+            Bitmap bm = view1.getDrawingCache();
+
+            return bm;
+
+
     }
+
+}
 

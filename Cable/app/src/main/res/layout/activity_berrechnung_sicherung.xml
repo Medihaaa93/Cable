@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/linearlayout1"
+    android:id="@+id/sicherungLayout1"
     android:layout_height="match_parent"
     android:background="@color/background"
     android:baselineAligned="false"
@@ -106,6 +106,7 @@
             android:layout_marginBottom="17dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:visibility="invisible"
 
             />
 
