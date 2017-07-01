@@ -57,7 +57,7 @@ public class ConverterWatToAmpere extends AppCompatActivity {
         TextView showAmpere = (TextView) findViewById(R.id.textView10);
         showAmpere.setText(text);
 
-        showAmpere.setVisibility(View.VISIBLE);
+        //showAmpere.setVisibility(View.VISIBLE);
     }
 
 }

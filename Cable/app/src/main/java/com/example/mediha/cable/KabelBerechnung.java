@@ -62,6 +62,8 @@ public class KabelBerechnung extends AppCompatActivity {
     public void berechnen(View view) {
         final Button shareK = (Button) findViewById(R.id.btnShare) ;
 
+
+
         berechnung();
         shareK.setVisibility(VISIBLE);
     }
@@ -748,8 +750,8 @@ public class KabelBerechnung extends AppCompatActivity {
         startActivity(Intent.createChooser(intent, "Wählen"));
 
         view.destroyDrawingCache();
-        shareKa.setVisibility(INVISIBLE);
-
+        //shareKa.setVisibility(INVISIBLE);
+    finish();
 
     }
 
@@ -759,7 +761,7 @@ public class KabelBerechnung extends AppCompatActivity {
         LinearLayout view1 = (LinearLayout) view.findViewById(R.id.kabelLayout1);
         view1.setDrawingCacheEnabled(true);
         view1.buildDrawingCache();
-        
+
         Bitmap bm = view1.getDrawingCache();
 
 

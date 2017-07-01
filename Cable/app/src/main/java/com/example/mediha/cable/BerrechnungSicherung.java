@@ -157,7 +157,7 @@ public class BerrechnungSicherung extends AppCompatActivity {
        // f.deleteOnExit();
         view.destroyDrawingCache();
 
-        share.setVisibility(INVISIBLE);
+        finish();
 
 
 
