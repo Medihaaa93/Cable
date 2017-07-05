@@ -53,7 +53,7 @@ public class KabelBerechnung extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kabel_berechnung);
-
+        TextView showAmpere = (TextView) findViewById(R.id.textView10);
 
 
     }
