@@ -34,9 +34,9 @@ public class KabelBerechnung extends AppCompatActivity {
 
     List<Float> temp60;
     List<Float> temp70;
-    List<Float> temp90 = new ArrayList<>();
-    List<Float> haufa = new ArrayList<>();
-    List<Float> haufc = new ArrayList<>();
+    List<Double> temp90 = new ArrayList<>();
+    List<Double> haufa = new ArrayList<>();
+    List<Double> haufc = new ArrayList<>();
     List<String[]> bemessA12 = new ArrayList<>();
     List<String[]> bemessA13 = new ArrayList<>();
     List<String[]> bemessA22 = new ArrayList<>();
@@ -59,12 +59,17 @@ public class KabelBerechnung extends AppCompatActivity {
     }
 
 
-    public void berechnen(View view) {
-        final Button shareK = (Button) findViewById(R.id.btnShare) ;
+        final Button btnStart = (Button) findViewById(R.id.buttonStart);
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                berechnung();
 
 
 
-        berechnung();
+                           }
+        });
+        final TextView showAmpere = (TextView) findViewById(R.id.textView10);
         shareK.setVisibility(VISIBLE);
     }
 
@@ -75,13 +80,13 @@ public class KabelBerechnung extends AppCompatActivity {
 
 
         EditText textLeistung = (EditText) findViewById(R.id.editLeistung);
-        float leistung = Float.valueOf(textLeistung.getText().toString()); // Leistung in Meter
+        double leistung = Float.valueOf(textLeistung.getText().toString()); // Leistung in Meter
 
         EditText textLaenge = (EditText) findViewById(R.id.editLaenge);
-        float laenge = Float.valueOf(textLaenge.getText().toString()); // länge in Meter
+        double laenge = Float.valueOf(textLaenge.getText().toString()); // länge in Meter
 
         EditText textCos = (EditText) findViewById(R.id.editCos);
-        float cos = Float.valueOf(textCos.getText().toString());  // cosinus wert
+        double cos = Float.valueOf(textCos.getText().toString());  // cosinus wert
 
         Spinner verlegeSpinner = (Spinner) findViewById(R.id.spinnerVerlege);
         int verlegeposition = verlegeSpinner.getSelectedItemPosition();  // Hier wissen wir was ausgewählt wurde Verlegeart
@@ -95,94 +100,61 @@ public class KabelBerechnung extends AppCompatActivity {
         Spinner spannungsSpinner = (Spinner) findViewById(R.id.spinner2);
         int spannungsposition = spannungsSpinner.getSelectedItemPosition();  // Hier wissen wir was ausgewählt wurde Spannung
 
-        double amp = 0;
-        float volt = 0;
-        Float quer0 = Float.valueOf(0);
+        Double amp = 0.0;
+        Double volt = 0.0;
+        Double quer0 = 0.0;
 
         switch (spannungsposition) {
 
             case 0:
-                volt = 230;
+                volt = 230.0;
                 break;
 
             case 1:
-                volt = 400;
+                volt = 400.0;
                 break;
 
         }
 
 
-        // Index = Temperatur --- Wert = Faktor
-/*
-        temp60.add(10, (float) 1.19);
-        temp60.add(15, (float) 1.13);
-        temp60.add(20, (float) 1.07);
-        temp60.add(25, (float) 1);
-        temp60.add(30, (float) 0.93);
-        temp60.add(35, (float) 0.84);
-        temp60.add(40, (float) 0.76);
-        temp60.add(45, (float) 0.66);
-        temp60.add(50, (float) 0.54);
-        temp60.add(55, (float) 0.38);
+        temp90.add(0, 1.11);
+        temp90.add(1, 1.08);
+        temp90.add(2, 1.04);
+        temp90.add(3, 1.0);
+        temp90.add(4, 0.96);
+        temp90.add(5, 0.92);
+        temp90.add(6, 0.88);
+        temp90.add(7, 0.84);
+        temp90.add(8, 0.79);
+        temp90.add(9, 0.73);
+        temp90.add(10, 0.68);
+        temp90.add(11, 0.63);
+        temp90.add(12, 0.56);
+        temp90.add(13, 0.48);
+        temp90.add(14, 0.39);
+        temp90.add(15, 0.28);
 
-        temp70.add(10, (float) 1.15);
-        temp70.add(15, (float) 1.10);
-        temp70.add(20, (float) 1.06);
-        temp70.add(25, (float) 1);
-        temp70.add(30, (float) 0.94);
-        temp70.add(35, (float) 0.89);
-        temp70.add(40, (float) 0.82);
-        temp70.add(45, (float) 0.75);
-        temp70.add(50, (float) 0.67);
-        temp70.add(55, (float) 0.58);
-        temp70.add(60, (float) 0.47);
-        temp70.add(65, (float) 0.33);
+        haufa.add(0,  1.00);
+        haufa.add(1,  0.8);
+        haufa.add(2,  0.7);
+        haufa.add(3,  0.65);
+        haufa.add(4,  0.6);
+        haufa.add(5,  0.57);
+        haufa.add(6,  0.52);
+        haufa.add(7,  0.48);
+        haufa.add(8,  0.45);
+        haufa.add(9,  0.43);
 
-*/
-        temp90.add(0, (float) 1.11);
-        temp90.add(1, (float) 1.08);
-        temp90.add(2, (float) 1.04);
-        temp90.add(3, (float) 1);
-        temp90.add(4, (float) 0.96);
-        temp90.add(5, (float) 0.92);
-        temp90.add(6, (float) 0.88);
-        temp90.add(7, (float) 0.84);
-        temp90.add(8, (float) 0.79);
-        temp90.add(9, (float) 0.73);
-        temp90.add(10, (float) 0.68);
-        temp90.add(11, (float) 0.63);
-        temp90.add(12, (float) 0.56);
-        temp90.add(13, (float) 0.48);
-        temp90.add(14, (float) 0.39);
-        temp90.add(15, (float) 0.28);
-
-        int[] arrtemp = {10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85};
-
-        // index = Anzah der Kabel  --- Wert = Faktor
-
-        int[] arrhauf = {1, 2, 3, 4, 5, 6, 8, 10, 12, 14};
-
-        haufa.add(0, (float) 1.00);
-        haufa.add(1, (float) 0.8);
-        haufa.add(2, (float) 0.7);
-        haufa.add(3, (float) 0.65);
-        haufa.add(4, (float) 0.6);
-        haufa.add(5, (float) 0.57);
-        haufa.add(6, (float) 0.52);
-        haufa.add(7, (float) 0.48);
-        haufa.add(8, (float) 0.45);
-        haufa.add(9, (float) 0.43);
-
-        haufc.add(0, (float) 1.00);
-        haufc.add(1, (float) 0.85);
-        haufc.add(2, (float) 0.79);
-        haufc.add(3, (float) 0.73);
-        haufc.add(4, (float) 0.72);
-        haufc.add(5, (float) 0.71);
-        haufc.add(6, (float) 0.71);
-        haufc.add(7, (float) 0.70);
-        haufc.add(8, (float) 0.70);
-        haufc.add(9, (float) 0.70);
+        haufc.add(0,  1.00);
+        haufc.add(1,  0.85);
+        haufc.add(2,  0.79);
+        haufc.add(3,  0.73);
+        haufc.add(4,  0.72);
+        haufc.add(5,  0.71);
+        haufc.add(6,  0.71);
+        haufc.add(7,  0.70);
+        haufc.add(8,  0.70);
+        haufc.add(9,  0.70);
 
 
         // Index = Bemessungsstrom --- Wert = Querschnitt
@@ -281,9 +253,9 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 10; i++) {
 
                         String[] test01 = bemessA12.get(i);
-                        if (amp <= Float.valueOf(test01[0])) {
+                        if (amp <= Double.valueOf(test01[0])) {
                             amp2 = Integer.valueOf(test01[0]);
-                            quer0 = Float.valueOf(test01[1]);
+                            quer0 = Double.valueOf(test01[1]);
 
                             break;
                         }
@@ -298,9 +270,9 @@ public class KabelBerechnung extends AppCompatActivity {
                     for (int i = 0; i < 10; i++) {
 
                         String[] test02 = bemessA13.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -321,9 +293,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 if (volt == 230) {
                     for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessA22.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -337,9 +309,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 } else {
                     for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessA23.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -361,9 +333,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 if (volt == 230) {
                     for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessB12.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -377,9 +349,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 } else {
                     for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessB13.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -398,9 +370,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 if (volt == 230) {
                     for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessB22.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -414,9 +386,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 } else {
                     for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessB23.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -436,9 +408,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 if (volt == 230) {
                     for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessC12.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -452,9 +424,9 @@ public class KabelBerechnung extends AppCompatActivity {
                 } else {
                     for (int i = 0; i < 10; i++) {
                         String[] test02 = bemessC13.get(i);
-                        if (amp <= Float.valueOf(test02[0])) {
+                        if (amp <= Double.valueOf(test02[0])) {
                             amp2 = Integer.valueOf(test02[0]);
-                            quer0 = Float.valueOf(test02[1]);
+                            quer0 = Double.valueOf(test02[1]);
 
                             break;
                         }
@@ -473,9 +445,9 @@ public class KabelBerechnung extends AppCompatActivity {
 
         // Berechnung mit Faktoren
 
-        float amp3 = 0;
-        float tempfaktor = temp90.get(tempposition);
-        float faktorhauf = 0;
+        Double amp3 = 0.0;
+        Double tempfaktor = Double.valueOf(temp90.get(tempposition));
+        Double faktorhauf = 0.0;
 
         switch (verlegeposition) {
 
@@ -511,8 +483,8 @@ public class KabelBerechnung extends AppCompatActivity {
             for (int i = 0; i < 10; i++) {
 
                 String[] test01 = bemessA12.get(i);
-                if (amp3 <= Float.valueOf(test01[0])) {
-                    quer0 = Float.valueOf(test01[1]);
+                if (amp3 <= Double.valueOf(test01[0])) {
+                    quer0 = Double.valueOf(test01[1]);
 
                     break;
                 }
@@ -527,8 +499,8 @@ public class KabelBerechnung extends AppCompatActivity {
             for (int i = 0; i < 10; i++) {
 
                 String[] test02 = bemessA13.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 }else if(amp > 80){
@@ -548,8 +520,8 @@ public class KabelBerechnung extends AppCompatActivity {
         if (volt == 230) {
             for (int i = 0; i < 10; i++) {
                 String[] test02 = bemessA22.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 } else if(amp > 25){
@@ -563,8 +535,8 @@ public class KabelBerechnung extends AppCompatActivity {
         } else {
             for (int i = 0; i < 10; i++) {
                 String[] test02 = bemessA23.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 }else if(amp > 80){
@@ -585,8 +557,8 @@ public class KabelBerechnung extends AppCompatActivity {
         if (volt == 230) {
             for (int i = 0; i < 10; i++) {
                 String[] test02 = bemessB12.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 } else if(amp > 25){
@@ -600,8 +572,8 @@ public class KabelBerechnung extends AppCompatActivity {
         } else {
             for (int i = 0; i < 10; i++) {
                 String[] test02 = bemessB13.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 }else if(amp > 100){
@@ -620,8 +592,8 @@ public class KabelBerechnung extends AppCompatActivity {
         if (volt == 230) {
             for (int i = 0; i < 10; i++) {
                 String[] test02 = bemessB22.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 } else if(amp > 25){
@@ -635,8 +607,8 @@ public class KabelBerechnung extends AppCompatActivity {
         } else {
             for (int i = 0; i < 10; i++) {
                 String[] test02 = bemessB23.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 }else if(amp > 100){
@@ -656,8 +628,8 @@ public class KabelBerechnung extends AppCompatActivity {
         if (volt == 230) {
             for (int i = 0; i < 10; i++) {
                 String[] test02 = bemessC12.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 } else if(amp > 35){
@@ -671,8 +643,8 @@ public class KabelBerechnung extends AppCompatActivity {
         } else {
             for (int i = 0; i < 10; i++) {
                 String[] test02 = bemessC13.get(i);
-                if (amp3 <= Float.valueOf(test02[0])) {
-                    quer0 = Float.valueOf(test02[1]);
+                if (amp3 <= Double.valueOf(test02[0])) {
+                    quer0 = Double.valueOf(test02[1]);
 
                     break;
                 }else if(amp > 125){
