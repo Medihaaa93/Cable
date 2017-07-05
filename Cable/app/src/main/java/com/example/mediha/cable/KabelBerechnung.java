@@ -669,7 +669,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
         String text00 = null;
         String querschnitt = null;
-        if (amp <= amp2 && amp2 <= amp3) {
+
 
             double deltaU = 0;
             double flaeche = 0;
@@ -680,12 +680,7 @@ public class KabelBerechnung extends AppCompatActivity {
             querschnitt = "Querschnitt =";
             querschnitt = querschnitt + String.valueOf(quer0);
             querschnitt = querschnitt + "mm²";
-        }
 
-        else {
-
-                    showAmpere.setText("Leider sind wir auf kein Ergebnis gekommen");
-        }
 
 
 
