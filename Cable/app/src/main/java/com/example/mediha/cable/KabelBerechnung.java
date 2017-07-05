@@ -59,19 +59,27 @@ public class KabelBerechnung extends AppCompatActivity {
     }
 
 
+    public void berechnen(View view) {
+
+
+        final Button shareKa = (Button) findViewById(R.id.buttonShare);
+        TextView showAmpere = (TextView)findViewById(R.id.textView10);
+
         final Button btnStart = (Button) findViewById(R.id.buttonStart);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 berechnung();
+                shareKa.setVisibility(VISIBLE);
+            }
 
 
-
-                           }
         });
-        final TextView showAmpere = (TextView) findViewById(R.id.textView10);
-        shareK.setVisibility(VISIBLE);
     }
+
+
+
+
 
 
     private void berechnung() {
@@ -92,7 +100,7 @@ public class KabelBerechnung extends AppCompatActivity {
         int verlegeposition = verlegeSpinner.getSelectedItemPosition();  // Hier wissen wir was ausgewählt wurde Verlegeart
 
         Spinner haufSpinner = (Spinner) findViewById(R.id.spinnerHauf);
-        int haufposition = verlegeSpinner.getSelectedItemPosition();  // Hier wissen wir was ausgewählt wurde Verlegeart
+        int haufposition = haufSpinner.getSelectedItemPosition();  // Hier wissen wir was ausgewählt wurde Verlegeart
 
         Spinner tempSpinner = (Spinner) findViewById(R.id.spinnerTemp);
         int tempposition = tempSpinner.getSelectedItemPosition();
@@ -687,7 +695,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
         showAmpere.setText(querschnitt);
 
-       // showAmpere.setVisibility(View.VISIBLE);
+        showAmpere.setVisibility(View.VISIBLE);
 
 
 
@@ -699,7 +707,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
     public void shareK(View view) {
         Bitmap test = viewToBitmap(view);
-        Button shareKa = (Button) findViewById(R.id.btnShare) ;
+        Button shareKa = (Button) findViewById(R.id.buttonShare) ;
 
         File f = new File (getExternalCacheDir()+"/image.png");
         try {
