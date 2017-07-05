@@ -53,25 +53,13 @@ public class KabelBerechnung extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kabel_berechnung);
-
+        TextView showAmpere = (TextView) findViewById(R.id.textView10);
 
 
     }
 
 
-        final Button btnStart = (Button) findViewById(R.id.buttonStart);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                berechnung();
 
-
-
-                           }
-        });
-        final TextView showAmpere = (TextView) findViewById(R.id.textView10);
-        shareK.setVisibility(VISIBLE);
-    }
 
 
     private void berechnung() {
@@ -699,7 +687,7 @@ public class KabelBerechnung extends AppCompatActivity {
 
     public void shareK(View view) {
         Bitmap test = viewToBitmap(view);
-        Button shareKa = (Button) findViewById(R.id.btnShare) ;
+        Button shareKa = (Button) findViewById(R.id.buttonShare) ;
 
         File f = new File (getExternalCacheDir()+"/image.png");
         try {

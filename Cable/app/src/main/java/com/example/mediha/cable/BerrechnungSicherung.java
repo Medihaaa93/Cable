@@ -47,7 +47,7 @@ public class BerrechnungSicherung extends AppCompatActivity {
     }
 
     private void berechnung() {
-        Button share = (Button) findViewById(R.id.btnShare);
+        Button share = (Button) findViewById(R.id.buttonShare01);
         share.setVisibility(VISIBLE);
 
         EditText textLeistung = (EditText) findViewById(R.id.editLeistung);
@@ -131,7 +131,7 @@ public class BerrechnungSicherung extends AppCompatActivity {
     public void shareS(View view) {
 
 
-        Button share = (Button) findViewById(R.id.btnShare);
+        Button share = (Button) findViewById(R.id.buttonShare01);
 
         Bitmap test = viewToBitmap(view);
 
