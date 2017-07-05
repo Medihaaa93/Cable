@@ -38,12 +38,12 @@ public class ConverterWatToAmpere extends AppCompatActivity {
             switch (spannung) {
 
                 case 0:
-                    ampere = leistung / 230;
+                    ampere = Math.round(leistung / 230);
                     text = String.valueOf(ampere);
                     text = text + " A";
                     break;
                 case 1:
-                    ampere = leistung / (400 * Math.sqrt(3));
+                    ampere = Math.round(leistung / (400 * Math.sqrt(3)));
                     text = String.valueOf(ampere);
                     text = text + " A";
                     break;
